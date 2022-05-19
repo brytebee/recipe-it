@@ -36,11 +36,11 @@
     <%= form.check_box :public %>
   </div>
 
-  <div>
+  <div class="d-none">
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id, value: current_user.id %>
+    <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
   </div>
-
+  <%= @recipe.id %>
   <div>
     <%= form.submit %>
   </div>
