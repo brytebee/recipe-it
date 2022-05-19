@@ -11,6 +11,9 @@ class Ability
       can :destroy, Recipe do |recipe|
         recipe.user_id == user.id
       end
+      can :update, Recipe do |recipe|
+        recipe.user_id == user.id
+      end
       can :read, :all
     end
   end
