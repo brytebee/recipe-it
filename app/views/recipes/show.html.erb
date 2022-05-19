@@ -3,7 +3,10 @@
 <%= render @recipe %>
 
 <div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <% if can? :update, @recipe %>
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <% end %>
+  
   <%= link_to "Back to recipes", recipes_path %>
 
   <% if can? :destroy, @recipe %>
