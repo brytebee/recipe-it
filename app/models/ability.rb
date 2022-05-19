@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     else
       can :destroy, Recipe do |recipe|
-        recipe.user = user
+        recipe.user_id == user.id
       end
       can :read, :all
     end
