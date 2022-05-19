@@ -11,6 +11,7 @@
 
   <body>
     <% if user_signed_in? %>
+      <h6> Welcome <%=current_user.email %></h6>
       <a><%= button_to "Sign out", destroy_user_session_path, method: :delete %></a>
     <% end %>
     <%= yield %>
