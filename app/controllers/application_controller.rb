@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
-<<<<<<< Updated upstream
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.recipe_path, alert: exception.message
-=======
-  before_action :update_allowed_parameters, if: :devise_controller?
+    before_action :update_allowed_parameters, if: :devise_controller?
+  end
 
   protected
 
@@ -21,6 +20,5 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(_resource)
     root_path
->>>>>>> Stashed changes
   end
 end
