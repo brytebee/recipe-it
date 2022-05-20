@@ -19,6 +19,7 @@ class Ability
         food.user_id == user.id
       end
       can :read, :all
+      can :create, :all
     end
   end
 end
