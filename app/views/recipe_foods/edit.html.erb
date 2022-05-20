@@ -1,10 +1,27 @@
-<h1>Editing recipe food</h1>
-
-<%= render "form", recipe_food: @recipe_food %>
-
-<br>
-
+<h2 class="heading">Edit Recipe Food</h2>
 <div>
-  <%= link_to "Show this recipe food", @recipe_food %> |
-  <%= link_to "Back to recipe foods", recipe_foods_path %>
+<%= form_with  model: @recipe_food, url: { action: "update"}, local: true, class:"input-form"  do |f|%>
+    <div class="form-div" >
+
+    <div>
+    <%= f.label :food, class:"form-label" %><br>
+    <%= f.select :food_id, Food.all.collect {|food| [food.name, food.id]},{ include_blank: true} , class:"form-select" %><br>
+    </div>
+
+    <div>
+    <%= f.label :quantity  %><br>
+    <%= f.number_field :quantity , required: true, min:1%><br>
+    </div>
+
+    <div>
+    <%= f.submit "Update Recipe_Food" %>
+    </div>
+    </div>
+<%end%>
+<div class="form-div" >
+  <div class="mb-3 col-sm-2">
+    
+        <%=link_to 'Back', foods_path%>
+  </div>
+</div>
 </div>

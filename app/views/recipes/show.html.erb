@@ -13,3 +13,32 @@
     <%= button_to "Destroy this recipe", @recipe, method: :delete, :class => "btn btn-danger" %>
   <% end %>
 </div>
+<div>
+<%= link_to new_recipe_recipe_food_path(@recipe), :class => "btn
+    btn btn-outline-dark add mb-3" do %> Add Ingredients <% end %>
+</div>
+<table >
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipeFood|%> 
+      <tr>
+        <td><%= recipeFood.food.name%></th>
+        <td><%= recipeFood.quantity%><%= recipeFood.food.measurement_unit  %></td>
+        <td>$<%= recipeFood.quantity * recipeFood.food.price %></td>
+        <td>
+        <% if can? :destroy, @recipe %>
+          <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete, class:"btn btn-danger"%>
+          <%=link_to "Edit", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:recipeFood.id), class:"btn btn-dark"%>
+        <%end%>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
