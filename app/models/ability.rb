@@ -6,6 +6,9 @@ class Ability
     if user.admin?
       can :manage, :all
     else
+      can :show, Recipe do |recipe|
+        recipe.user_id == user.id
+      end
       can :destroy, Recipe do |recipe|
         recipe.user_id == user.id
       end
