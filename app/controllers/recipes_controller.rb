@@ -1,22 +1,18 @@
 class RecipesController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :set_recipe, only: %i[show edit update destroy]
 
-  # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.all
   end
 
-  # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
-
-  # GET /recipes/1/edit
-  def edit; end
 
   # POST /recipes or /recipes.json
   def create
@@ -54,6 +50,10 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def public
+    @recipes = Recipe.where(public: true)
   end
 
   private

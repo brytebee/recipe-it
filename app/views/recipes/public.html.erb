@@ -1,0 +1,26 @@
+<h4 class="fw-bold">Public Recipes</h4>
+<div>
+  <ul class="m-0 p-0">
+    <% @recipes.each do |recipe| %>
+    <li class="">
+      <div class="">
+        <%= link_to recipe.name, recipe_path(recipe.id) %>
+      </div>
+      <div class="">
+        <p class="">By: <%= recipe.user.name %></p>
+        <p class="">
+          <span class="">Description:</span><br />
+          <%= recipe.description %>
+        </p>
+        <div class="">
+          <span class=""
+            >Total food items: <%= recipe.recipe_foods.length %> </span
+          ><br />
+          <% if can? :destroy, recipe%> <%= button_to '',
+          recipe_path(recipe), method: :delete %> <%end%>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
