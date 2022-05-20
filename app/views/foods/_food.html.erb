@@ -2,10 +2,10 @@
   <th scope="row"><%= food.name%></th>
   <td><%= food.measurement_unit %></td>
   <td>$ <%= food.price %></td>
-  <% if can? :destroy, food %>
-    <td>
+  <td>
+    <% if can? :destroy, food %>
       <%= button_to "Delete Food" ,"foods/#{food.id}", method: :delete, data:
       {confirm: "Are you sure"}, :class => "btn btn-sm btn-danger"%>
-    </td>
-  <% end %>
+    <% end %>
+  </td>
 </tr>
