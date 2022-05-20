@@ -22,8 +22,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: okino
-  password: <%= ENV['RECIPEAPP_DATABASE_PASSWORD'] %>
+  # username: okino
+  # password: <%= ENV['RECIPEAPP_DATABASE_PASSWORD'] %>
 development:
   <<: *default
   database: recipe_it_development
