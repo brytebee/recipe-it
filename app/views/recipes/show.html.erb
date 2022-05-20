@@ -17,6 +17,8 @@
 <%= link_to new_recipe_recipe_food_path(@recipe), :class => "btn
     btn btn-outline-dark add mb-3" do %> Add Ingredients <% end %>
 </div>
+<%= link_to recipe_shopping_list_index_path(@recipe), :class => "btn btn-dark bg-dark add mb-3" do %>
+    Generate shopping list <% end %>
 <table >
     <thead>
       <tr>
