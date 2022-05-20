@@ -1,6 +1,79 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+<div class="m-24 rounded-xl p-8 border-gray-800 border-2">
+<div class="flex items-center justify-between">
+<h4>Recipe name</h4>
+<div class="form-group mb-6">
+<%= form_with do |form| %>
+      <%= form.label :public, style: "display: block" %>
+      <%= form.check_box :public %>
+      <%end%>
+</div>
+</div>
+<div>
+<p>Cooking time: 30mins</p>
+<p>Preparation time: 40mins</p>
+<p>Steps:</p>
+<p>some description</p>
+</div>
+<div class='flex items-center justify-between'>
+<%= link_to new_recipe_recipe_food_path(@recipe), :class => "inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out" do %> Add Ingredients <% end %>
+
+<%= link_to recipe_shopping_list_index_path(@recipe), :class => "inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" do %>
+    Generate shopping list <% end %>
+</div>
+<hr/>
+
+<div>
+<table class="min-w-full text-center" >
+    <thead class="border-b bg-gray-800">
+      <tr>
+        <th scope="col" class="text-sm font-medium text-white px-6 py-4">Food</th>
+        <th scope="col" class="text-sm font-medium text-white px-6 py-4">Quantity</th>
+        <th scope="col" class="text-sm font-medium text-white px-6 py-4">Value</th>
+        <th scope="col" class="text-sm font-medium text-white px-6 py-4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipeFood|%> 
+      <tr class="bg-white border-b">
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= recipeFood.food.name%></th>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= recipeFood.quantity%><%= recipeFood.food.measurement_unit  %></td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">$<%= recipeFood.quantity * recipeFood.food.price %></td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+        <% if can? :destroy, @recipe %>
+          <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete, class:"btn btn-danger"%>
+          <%=link_to "Edit", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:recipeFood.id), class:"btn btn-dark"%>
+        <%end%>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div>
   <% if can? :update, @recipe %>
@@ -19,28 +92,3 @@
 </div>
 <%= link_to recipe_shopping_list_index_path(@recipe), :class => "btn btn-dark bg-dark add mb-3" do %>
     Generate shopping list <% end %>
-<table >
-    <thead>
-      <tr>
-        <th scope="col">Food</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Value</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @recipe.recipe_foods.each do |recipeFood|%> 
-      <tr>
-        <td><%= recipeFood.food.name%></th>
-        <td><%= recipeFood.quantity%><%= recipeFood.food.measurement_unit  %></td>
-        <td>$<%= recipeFood.quantity * recipeFood.food.price %></td>
-        <td>
-        <% if can? :destroy, @recipe %>
-          <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete, class:"btn btn-danger"%>
-          <%=link_to "Edit", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:recipeFood.id), class:"btn btn-dark"%>
-        <%end%>
-        </td>
-      </tr>
-      <%end%>
-    </tbody>
-  </table>
