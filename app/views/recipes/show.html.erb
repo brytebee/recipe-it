@@ -27,7 +27,7 @@
 <hr/>
 
 <div class='mb-4 mt-4'>
-<table class="min-w-full text-center" >
+  <table class="min-w-full text-center" >
     <thead class="border-b bg-gray-800">
       <tr>
         <th scope="col" class="text-sm font-medium text-white px-6 py-4">Food</th>
@@ -52,41 +52,17 @@
       <%end%>
     </tbody>
   </table>
-
 </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div>
+  <div>
   <% if can? :update, @recipe %>
-    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" %> 
   <% end %>
   
-  <%= link_to "Back to recipes", recipes_path %>
+  <%= link_to "Back to recipes", recipes_path, class: "inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" %>
 
   <% if can? :destroy, @recipe %>
-    <%= button_to "Destroy this recipe", @recipe, method: :delete, :class => "btn btn-danger" %>
+    <%= button_to "Destroy this recipe", @recipe, method: :delete, class: "inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" %>
   <% end %>
 </div>
 <div>
-
+</div>
