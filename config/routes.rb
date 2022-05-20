@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :recipes do
     resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
+    resources :shopping_list, only: [:index, :show]
     collection do 
       get 'public', to: 'recipes#public', as: 'public'
     end

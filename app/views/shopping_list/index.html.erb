@@ -1,7 +1,7 @@
 <h4>Shopping List</h1>
 
 <div class="d-flex justify-content-between mt-5">
-  <h6>Amount of food items to buy: <%= @recipe_foods.length %> </h6>
+  <h6>Amount of food items to buy: <%= @recipe.recipe_foods.length %> </h6>
   <h6 class="fw-bold">Total price: <%= @total_price %> </h6>
 </div> 
 
@@ -13,5 +13,17 @@
         <th scope="col">Price</th>
         </tr>
     </thead>
-
+   <tbody>
+     <% @recipe.recipe_foods.each do |fd|%>
+    <tr>
+      <td><%= fd.food.name%></th>
+      <td><%= fd.quantity%><%= fd.food.measurement_unit  %></td>
+      <td>$<%= fd.quantity* fd.food.price %></td>
+      <td class="mb-3 col-sm-3">
+      </td>
+    </tr>
+  
+    </tbody>
+    <%end%>
+    </tbody>
     </table>
