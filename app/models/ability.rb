@@ -12,6 +12,12 @@ class Ability
       can :update, Recipe do |recipe|
         recipe.user_id == user.id
       end
+      can :destroy, Food do |food|
+        food.user_id == user.id
+      end
+      can :update, Food do |food|
+        food.user_id == user.id
+      end
       can :read, :all
     end
   end
