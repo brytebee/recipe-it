@@ -1,6 +1,7 @@
 class Ability
   include CanCan::Ability
 
+  # rubocop:disable Metrics/MethodLength
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     if user.admin?
@@ -25,4 +26,5 @@ class Ability
       can :create, :all
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end
