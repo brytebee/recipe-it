@@ -21,7 +21,7 @@ class Ability
       can :update, Food do |food|
         food.user_id == user.id
       end
-      can :read, :all
+      can :read, Food
       can :create, :all
     end
   end
