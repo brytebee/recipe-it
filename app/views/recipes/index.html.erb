@@ -1,15 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
-<div id="recipes">
+<div class='flex justify-center items-center mt-24 '>
+<div class="flex items-center justify-between w-1/2 mb-8">
+<h4 class="font-bold leading-tight text-2xl mt-0 mb-2 text-black-600 text-center">Recipes</h4>
+
+  <%= link_to "New recipe", new_recipe_path, class:'w-1/6 px-6 py-2.5 bg-gray-800 text-white
+    font-medium text-center text-2xs leading-tight uppercase rounded shadow-md
+    hover:bg-blue-700 hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out' %>
+
+</div>
+</div>
+
+<div id="recipes" >
   <% @recipes.each do |recipe| %>
     <% if can? :read, recipe %>
       <%= render recipe %>
-      <p>
-        <%= link_to "Show this recipe", recipe %>
-      </p>
     <% end %>
   <% end %>
 </div>
-
-<%= link_to "New recipe", new_recipe_path %>

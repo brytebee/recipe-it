@@ -1,29 +1,31 @@
-<h4>Shopping List</h1>
 
-<div class="d-flex justify-content-between mt-5">
-  <h6>Amount of food items to buy: <%= @recipe.recipe_foods.length %> </h6>
-  <h6 class="fw-bold">Total price: <%= @total_price %> </h6>
+
+<div class="m-24 rounded-xl p-8 border-gray-800 border-2">
+<h4 class='font-bold text-2xl font-bold'>Shopping List</h4>
+<div class="d-flex justify-content-between mt-4 mb-4">
+  <h6><span class='italic font-bold text-gray-500'>Amount of food items to buy:</span> <%= @recipe.recipe_foods.length %> </h6>
+  <h6 class="font-bold"><span class='italic font-bold text-gray-500'>Total price:</span> <%= @total_price %> </h6>
 </div> 
 
-<table class="table table-striped">
-    <thead>
+   <table class="min-w-full text-center">
+          <thead class="border-b bg-gray-800">
         <tr>
-        <th scope="col">Food</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
+        <th scope="col" class="text-sm font-medium text-white px-6 py-4">Food</th>
+        <th scope="col" class="text-sm font-medium text-white px-6 py-4">Quantity</th>
+        <th scope="col" class="text-sm font-medium text-white px-6 py-4">Price</th>
         </tr>
     </thead>
    <tbody>
      <% @recipe.recipe_foods.each do |fd|%>
-    <tr>
-      <td><%= fd.food.name%></th>
-      <td><%= fd.quantity%><%= fd.food.measurement_unit  %></td>
-      <td>$<%= fd.quantity* fd.food.price %></td>
-      <td class="mb-3 col-sm-3">
-      </td>
+    <tr class="bg-white border-b">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= fd.food.name%></th>
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= fd.quantity%><%= fd.food.measurement_unit  %></td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$<%= fd.quantity* fd.food.price %></td>
+  
     </tr>
   
     </tbody>
     <%end%>
     </tbody>
     </table>
+    </div>
