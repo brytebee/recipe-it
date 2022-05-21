@@ -1,0 +1,58 @@
+<nav
+  class="relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light"
+>
+  <div class="px-6">
+    <div class="flex justify-between w-full" id="navbarSupportedContent1">
+      <div class="flex items-center">
+        <a class="text-xl text-white pr-2 font-semibold" href="#">RECIPE IT</a>
+        <% if user_signed_in? %>
+        <ul class="flex items-center pl-0 list-style-none mr-auto">
+          <li class="nav-item p-2">
+            <%= link_to 'Food', foods_path, class:"nav-link text-white
+            opacity-60 hover:opacity-80 focus:opacity-80 p-0" %>
+          </li>
+          <li class="nav-item p-2">
+            <%= link_to 'Recipes', recipes_url, class:"nav-link text-white
+            opacity-60 hover:opacity-80 focus:opacity-80 p-0" %>
+          </li>
+          <li class="nav-item p-2">
+            <%= link_to 'Public Recipes', public_recipes_path, class:"nav-link
+            text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0" %>
+          </li>
+          <li class="nav-item p-2">
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete,
+            class:"inline-block px-6 py-2.5 bg-gray-200 text-gray-700
+            font-medium text-xs leading-tight uppercase rounded shadow-md
+            hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg
+            focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg
+            transition duration-150 ease-in-out" %>
+          </li>
+        </ul>
+        <% else %> &nbsp;
+        <ul class="flex items-center pl-0 list-style-none mr-auto">
+          <li class="nav-item p-2">
+            <%= link_to 'Sign up', new_user_registration_path,
+            class:"inline-block px-6 py-2.5 bg-gray-200 text-gray-700
+            font-medium text-xs leading-tight uppercase rounded shadow-md
+            hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg
+            focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg
+            transition duration-150 ease-in-out" %>
+          </li>
+          <li class="nav-item p-2">
+            <%= link_to 'Sign in', new_user_session_path, class:"inline-block
+            px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs
+            leading-tight uppercase rounded shadow-md hover:bg-gray-300
+            hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none
+            focus:ring-0 active:bg-gray-400 active:shadow-lg transition
+            duration-150 ease-in-out" %>
+          </li>
+        </ul>
+        <% end %>
+      </div>
+      <!-- Left links -->
+
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+</nav>

@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<div class='flex justify-center items-center mt-32'>
+<div>
+<div class="flex items-center justify-between">
+<h4 class='font-medium leading-tight text-2xl mt-0 mb-2 font-bold'>Foods</h4>
+<%= link_to "Add food", new_food_path, :class => "px-6 py-2.5 bg-gray-800 text-white
+    font-medium text-xs leading-tight uppercase rounded shadow-md
+    hover:bg-blue-700 hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+%>
+</div>
+
+<table class="mt-4 table table-bordered table-striped table-hover">
+ <thead class="border-b bg-gray-800">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                Food
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+               Measurement Unit
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+              Unit Price
+              </th>
+              <th scope="col" class="text-sm font-medium text-white px-6 py-4"></th>
+            </tr>
+          </thead class="border-b">
+  <tbody>
+    <% @foods.each do |food| %> <%= render food %> <% end %>
+  </tbody>
+</table>
+</div>
+</div>
