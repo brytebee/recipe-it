@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-  resources :foods
+  resources :foods, only: %i[new create index]
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
