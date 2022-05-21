@@ -27,7 +27,7 @@ Internet connection and basic computing skills.
 ## Testing
 
 1. Installing the packages by running `bundle install`
-2. On the cmd run `cd weBlogz`
+2. On the cmd run `cd recipe-it`
 3. Run `rspec` or `rspec spec/models`
 
 ## Author
@@ -36,14 +36,14 @@ Internet connection and basic computing skills.
 
 - GitHub: [@brytebee](https://github.com/brytebee)
 - Twitter: [@brytebee](https://twitter.com/brytebee)
-- LinkedIn: [brytebee](https://www.linkedin.com/in/brytebee/)
+- LinkedIn: [brytebee](https://www.linkedin.com/in/brytebee)
 
 ## Collabrator
 
 👤 **Yaseer A. Okino**
 
 - GitHub: [@githubhandle](https://github.com/yaseerokino/)
-- Twitter: [@twitterhandle](https://twitter.com/yaseerokino)
+- Twitter: [@twitterhandle](https://twitter.com/yaseerokino/)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/yaseerokino/)
 
 ## 🤝 Contributing
