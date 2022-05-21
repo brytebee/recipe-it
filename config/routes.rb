@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
     resources :general_shopping_list, only: [:index, :show]
     collection do 
-      get 'public', to: 'recipes#public', as: 'public'
+      get 'public_recipes', to: 'recipes#public', as: 'public'
     end
   end
  
