@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :recipes do
     resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
-    resources :shopping_list, only: [:index, :show]
+    resources :general_shopping_list, only: [:index, :show]
     collection do 
       get 'public', to: 'recipes#public', as: 'public'
     end
